@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
  <head>
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
    <title></title>
  </head>
- <body>
+ <body ng-controller="myCtrl">
+   <input type="text" ng-model="friendFilter.first_name">
+   <div ng-repeat="friend in friends | filter: friendFilter">
+     <img ng-src="{{ friend.img_url }}" alt="">
+      <ul class="">
+        <li class=""> Name: {{ friend.first_name }} {{ friend.last_name }}</li>
+        <li class=""> Gender: {{ friend.gender }}  </li>
+        <button type="button" name="button" ng-click="unfriend(friend.id)">Unfriend</button>
+      </ul>
+      <hr>
+   </div>
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+<script src="app.js" charset="utf-8"></script>
+<script src="myCtrl.js" charset="utf-8"></script>
 </body>
 </html>
