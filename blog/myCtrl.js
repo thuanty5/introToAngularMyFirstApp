@@ -1,12 +1,16 @@
 angular.module('app').controller('myCtrl', function($scope) {
-  $scope.blogs = blogs;
-  blogs.map(c => {
-    c.title.length > 50 ? (c.title = c.title.slice(0, 30) + '...') : null;
+  blogs.map(function(c) {
+    if (c.title.length > 50) {
+      c.title = c.title.slice(0, 30) + '...';
+    }
     return c;
   });
+
+  $scope.blogs = blogs;
+
   $scope.submitPost = function(newPost) {
     var d = newPost.entry_date;
-    var date = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
+    var date = d.getMonth() + 1 + '/' + d.getDate() + '/ + ' + d.getFullYear();
     newPost.entry_date = date;
     $scope.blogs.unshift(newPost);
   };
