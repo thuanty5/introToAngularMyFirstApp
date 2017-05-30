@@ -10,9 +10,10 @@ angular.module('app').controller('myCtrl', function($scope) {
 
   $scope.submitPost = function(newPost) {
     var d = newPost.entry_date;
-    var date = d.getMonth() + 1 + '/' + d.getDate() + '/ + ' + d.getFullYear();
+    var date = d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear();
     newPost.entry_date = date;
     $scope.blogs.unshift(newPost);
+    $scope.newPost = {};
   };
 });
 
