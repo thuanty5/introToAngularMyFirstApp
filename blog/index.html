@@ -7,7 +7,23 @@
  </head>
  <body>
 
-
-
+   <div ng-app="app">
+     <div ng-controller="myCtrl">
+     <input type="text" placeholder="Title" ng-model="newPost.title">
+     <input type="text" placeholder="Post" ng-model="newPost.posts">
+     <input type="date" placeholder="Date" ng-model="newPost.entry_date">
+     <button ng-click="submitPost(newPost)">Submit New Blog</button>
+       <ul ng-repeat="blog in blogs track by blog.entry_date">
+       <h3>{{blog.title}}</h3>
+         <li>
+           {{ blog.posts }}
+         </li>
+         <h6> {{ blog.entry_date }} </h6>
+       </ul>
+     </div>
+   </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+<script src="app.js" charset="utf-8"></script>
+<script src="myCtrl.js" charset="utf-8"></script>
 </body>
 </html>
