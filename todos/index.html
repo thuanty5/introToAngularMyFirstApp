@@ -3,11 +3,55 @@
  <head>
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" ></link>
    <title></title>
  </head>
- <body ng-controller="todoCtrl">
-   {{ test }}
+<style>
+body {
+  padding: 20px;
+}
+.strike{
+  text-decoration: line-through;
+}
+</style>
 
+ <body ng-controller="todoCtrl">
+   <div ng-hide="editing">
+     <input
+      type="text" ng-model="newTodo"
+      placeholder="Add New Todo"
+      >
+      <button class="btn btn-primary" type="button" ng-click="addTodo(newTodo)">Submit</button>
+   </div>
+   <div ng-show="editing">
+     <input
+      type="text" ng-model="editedTodo"
+      >
+      <button class="btn btn-warning" type="button" ng-click="modifyTodo(editedTodo)">Submit Edited Todo</button>
+   </div>
+
+   <div ng-class="{strike:checked}" ng-repeat="todo in todos track by $index">
+     <button type="button" name="button"
+     class="btn btn-warning"
+     ng-click="startEdit(todo, $index)"><span class="glyphicon glyphicon-edit"></span></button>
+     <button
+      type="button"
+      class="btn btn-primary"
+      ng-click="checked = !checked"
+      ><span class="glyphicon glyphicon-check"></span></button>
+     <button
+     class="btn btn-danger"
+     type="button"
+     ng-click="removeTodo(todo)"
+     >
+      <span class="glyphicon glyphicon-trash"></span>
+    </button>
+     {{ todo }}
+   </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
 <script src="./app.js"></script>
 <script src="./myCtrl.js"></script>
