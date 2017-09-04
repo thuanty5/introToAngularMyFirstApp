@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
  <head>
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
    <title></title>
  </head>
- <body>
+ <body ng-controller="myCtrl">
+   <div>
+     <ul style="border: 1px solid black; margin: 50px; width:80vw;" ng-repeat="blog in blogs">
+       <li>{{ blog.title }} - {{blog.entry_date}}</li>
+       <li>{{ blog.posts }}</li>
+       <li><img src="" ng-src="{{blog.img_url}}" alt=""></li>
+     </ul>
+   </div>
 
-
-
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+   <script src="app.js" charset="utf-8"></script>
+   <script src="myCtrl.js" charset="utf-8"></script>
 </body>
 </html>

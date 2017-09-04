@@ -10,13 +10,13 @@
    <input type="text" ng-model="newTodo">
    <button type="button" ng-click="addNewTodo(newTodo); isClicked = !isClicked">Submit</button>
    <ul>
-     <li ng-class="{myStyle: isClicked}" ng-hide="bool"  ng-repeat="item in todos track by $index">
+     <li ng-class="{myStyle: isClicked}"  ng-repeat="item in todos track by $index">
        <button ng-click="removeTodo($index)" type="button" name="button">x</button>
-       <button type="button" ng-click="bool = !bool" name="button">Hide</button>
-       {{ item }}
+       <button  ng-hide="bool" type="button" ng-click="bool = !(bool)" name="button">Hide</button>
+       <span ng-hide="bool">{{ item }}</span>
+       <button type="button" name="button" ng-click="bool = !(bool)" ng-show="bool">Show</button>
      </li>
    </ul>
-
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js">
    </script>
    <script src="app.js"></script>

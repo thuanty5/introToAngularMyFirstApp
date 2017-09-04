@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
  <head>
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
    <title></title>
  </head>
- <body>
+ <body ng-controller="myCtrl">
+   <div ng-repeat="person in people track by $index">
+     <img src="" ng-src="{{person.img_url}}" alt=""><br>
+     <button type="button" ng-click="removeUser($index)" name="button">Delete User</button>
+     <div ng-repeat="(prop, val) in person">
+       {{prop}} : {{ val }}
 
+     </div>
+     <hr>
 
+   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+  <script src="myCtrl.js" charset="utf-8"></script>
 </body>
 </html>
