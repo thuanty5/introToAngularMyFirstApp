@@ -1,13 +1,73 @@
+<!-- <!DOCTYPE html>
+<html ng-app="todos">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+		<title></title>
+	</head>
+
+	<body ng-controller="todoCtrl">
+
+		<input type="text" ng-model="newTodo">
+
+		<button class="btn btn-primary" type="button" ng-click="addTodo()">Submit</button>
+
+		<div ng-repeat="todo in todos">
+			{{todo}}
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+		<script scr="./app.js"></script>
+		<script scr="./myCtrl.js"></script>
+	</body>
+</html> -->
+
+
 <!DOCTYPE html>
-<html>
- <head>
-   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-   <title></title>
- </head>
- <body>
+<html ng-app="todos">//
 
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" ></link>
+		<title></title>
+	</head>
 
-</body>
+	<style>
+		body {
+		 padding: 20px;
+		}
+		.strike{
+			text-decoration: line-through;
+		}
+	</style>
+
+	<body ng-controller="todoCtrl">//
+
+		<input
+		type="text" ng-model="newTodo"
+		placeholder="Add New Todo"
+		>
+
+		<button class="btn btn-primary" type="button" ng-click="addTodo(newTodo)">Submit</button>
+
+		<div ng-class="{strike: checked}" ng-repeat="todo in todos">
+
+			<button type="button" class="btn btn-warning" ng-click="checked = !checked"><span class="glyphicon glyphicon-check"></button>
+
+			<button type="button" class="btn btn-danger" ng-click="removeTodo(todo)">
+			<span class="glyphicon glyphicon-trash"></span>
+			</button>
+
+			{{ todo }}
+
+		</div>
+
+		<!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+		<script src="./app.js"></script>
+		<script src="./myCtrl.js"></script>
+	</body>
 </html>
